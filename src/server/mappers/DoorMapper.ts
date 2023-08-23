@@ -13,13 +13,16 @@ export class DoorMapper implements EntityMapper<Door, DoorDto> {
   public toDomain(
     doorDto: DoorDto,
     buildingDtosById: BuildingDtosById,
-    apartmentDtosById?: ApartmentDtosById): Door {
+    apartmentDtosById?: ApartmentDtosById,
+  ): Door {
     const buildingName = this.getBuildingName(
       buildingDtosById,
       doorDto.building_id,
     );
-    const apartmentName = (doorDto.apartment_id && apartmentDtosById) ?
-      this.getApartmentName(apartmentDtosById, doorDto.apartment_id) : 'n/a';
+    const apartmentName =
+      doorDto.apartment_id && apartmentDtosById
+        ? this.getApartmentName(apartmentDtosById, doorDto.apartment_id)
+        : 'n/a';
 
     return {
       id: doorDto.id,

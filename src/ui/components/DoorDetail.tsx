@@ -10,7 +10,10 @@ interface DoorDetailProps {
 }
 
 export function DoorDetail({ door }: DoorDetailProps) {
-  const statusColor = door.connectionStatus === ConnectionStatus.Online ? 'success.main' : 'error.main';
+  const statusColor =
+    door.connectionStatus === ConnectionStatus.Online
+      ? 'success.main'
+      : 'error.main';
 
   return (
     <DetailPageContainer>
@@ -27,7 +30,9 @@ export function DoorDetail({ door }: DoorDetailProps) {
         <Typography>{door.connectionType}</Typography>
       </DetailPageItem>
       <DetailPageItem label="Last connection status update">
-        <Typography>{getLocaleString(door.lastConnectionStatusUpdate)}</Typography>
+        <Typography>
+          {getLocaleString(door.lastConnectionStatusUpdate)}
+        </Typography>
       </DetailPageItem>
       <DetailPageItem label="Connection status">
         <Typography color={statusColor}>{door.connectionStatus}</Typography>

@@ -35,14 +35,15 @@ const columns: GridColDef<Door>[] = [
     field: 'lastConnectionStatusUpdate',
     headerName: 'Last connection status update',
     flex: 1,
-    valueFormatter: ({ value }) => (getLocaleString(value)),
+    valueFormatter: ({ value }) => getLocaleString(value),
   },
   {
     field: 'connectionStatus',
     headerName: 'Connection status',
     flex: 1,
     renderCell: ({ value }) => {
-      const statusColor = value === ConnectionStatus.Online ? 'success.main' : 'error.main';
+      const statusColor =
+        value === ConnectionStatus.Online ? 'success.main' : 'error.main';
 
       return <Typography color={statusColor}>{value}</Typography>;
     },
