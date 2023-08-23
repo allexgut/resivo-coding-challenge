@@ -20,6 +20,11 @@ const columns: GridColDef<Door>[] = [
     flex: 1,
   },
   {
+    field: 'apartmentName',
+    headerName: 'Apartment',
+    flex: 1,
+  },
+  {
     field: 'connectionType',
     headerName: 'Connection type',
     flex: 1,
@@ -28,7 +33,6 @@ const columns: GridColDef<Door>[] = [
     field: 'connectionStatus',
     headerName: 'Connection status',
     flex: 1,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     renderCell: ({ row: door }) => {
       return <Typography color="success.main">online</Typography>;
     },
